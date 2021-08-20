@@ -193,7 +193,7 @@ a[onclick]:hover {
 }
 @media screen and (max-width: 768px) {
   .mobile-hidden {
-    display: none;
+    display: none !important;
   }
 }
 .float-panel {
@@ -1954,8 +1954,7 @@ details.folding[child=codeblock]>div.body .highlight .code:before {
   border: 1px solid #d2d2d2;
   border-bottom-width: 2px;
   background: var(--card);
-  padding-left: 4px;
-  padding-right: 4px;
+  padding: 2px 4px 1px 4px;
   font-family: Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif;
   font-weight: 700;
 }
@@ -2046,6 +2045,17 @@ details.folding[child=codeblock]>div.body .highlight .code:before {
   flex-shrink: 0;
   color: var(--text-p3);
 }
+.md .tag-plugin.mark {
+  margin: 0 1px;
+  padding: 1px 2px;
+  border-radius: 4px;
+  background: var(--theme-bg);
+  border: 1px solid var(--theme-border);
+  color: var(--text-p0);
+}
+.md .tag-plugin.mark[color=dark] {
+  border-color: var(--theme-bg);
+}
 .md .tag-plugin.navbar nav.cap {
   margin: 0;
   padding: 1px;
@@ -2092,6 +2102,9 @@ details.folding[child=codeblock]>div.body .highlight .code:before {
 }
 .md .tag-plugin.note >.body:only-child {
   margin: 1rem 0;
+}
+.md .tag-plugin.note[color] code {
+  background: none;
 }
 .md .tag-plugin.note:not([color]) .highlight {
   background: var(--block-hover);
@@ -2610,7 +2623,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   margin-bottom: 6rem;
 }
 .logo-wrap {
-  margin: 1rem 0 0.5rem;
+  margin: 1rem 0;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -3180,6 +3193,7 @@ article.md.error-page a#back {
     left: 0;
     background: var(--site-bg);
     box-shadow: 0 2px 4px 0px rgba(0,0,0,0.1), 0 4px 8px 0px rgba(0,0,0,0.1), 0 8px 16px 0px rgba(0,0,0,0.1);
+    z-index: 10;
   }
   .l_body .l_main {
     max-width: 100%;
@@ -3346,7 +3360,10 @@ article.md.error-page a#back {
   }
 }
 .l_main header {
-  margin: 2rem 1rem;
+  margin: 3rem 1rem 2rem;
+}
+.l_main header .logo-wrap {
+  margin: 0;
 }
 article.md {
   max-width: 100%;
