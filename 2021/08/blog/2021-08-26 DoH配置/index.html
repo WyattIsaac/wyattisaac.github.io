@@ -20,12 +20,12 @@
   <title>DoH配置 - 小小涛的博客</title>
 
   
-    <meta name="description" content="IOS和Mac如何配置DoHhttps:&#x2F;&#x2F;www.meaoo.cn&#x2F;2020&#x2F;12&#x2F;22&#x2F;20201222001.html 如何在iOS或macOS上加密你的DNS（配置DoH或DoT）https:&#x2F;&#x2F;www.bilibili.com&#x2F;read&#x2F;cv11471882加密DNS，为你的设备开启DoH或DoThttps:&#x2F;&#x2F;www.imokey.cn&#x2F;post&#x2F;8qrxgf1VY&#x2F; iOS M">
+    <meta name="description" content="DNS over HTTPS（缩写：DoH）是一个进行安全化的域名解析方案。其意义在于以加密的HTTPS协议进行DNS解析请求，避免原始DNS协议中用户的DNS解析请求被窃听或者修改的问题（例如中间人攻击）来达到保护用户隐私的目的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DoH配置">
 <meta property="og:url" content="https://wyattisaac.github.io/2021/08/blog/2021-08-26%20DoH%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="小小涛的博客">
-<meta property="og:description" content="IOS和Mac如何配置DoHhttps:&#x2F;&#x2F;www.meaoo.cn&#x2F;2020&#x2F;12&#x2F;22&#x2F;20201222001.html 如何在iOS或macOS上加密你的DNS（配置DoH或DoT）https:&#x2F;&#x2F;www.bilibili.com&#x2F;read&#x2F;cv11471882加密DNS，为你的设备开启DoH或DoThttps:&#x2F;&#x2F;www.imokey.cn&#x2F;post&#x2F;8qrxgf1VY&#x2F; iOS M">
+<meta property="og:description" content="DNS over HTTPS（缩写：DoH）是一个进行安全化的域名解析方案。其意义在于以加密的HTTPS协议进行DNS解析请求，避免原始DNS协议中用户的DNS解析请求被窃听或者修改的问题（例如中间人攻击）来达到保护用户隐私的目的。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/WyattIsaac/Picture/imgdns%20over%20doh.png">
 <meta property="article:published_time" content="2021-08-25T16:00:00.000Z">
@@ -84,6 +84,9 @@
 
 <div class="widgets">
 
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#iOS%E5%92%8CMac%E9%85%8D%E7%BD%AEDoH%E2%9C%8F%EF%B8%8F%EF%BC%9A"><span class="toc-text">iOS和Mac配置DoH✏️：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android%E2%9C%8F%EF%B8%8F%EF%BC%9A"><span class="toc-text">Android✏️：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E2%9A%A0%EF%B8%8F%EF%BC%9A"><span class="toc-text">注意⚠️：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB%F0%9F%94%8E%EF%BC%9A"><span class="toc-text">推荐阅读🔎：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99%F0%9F%93%8D%EF%BC%9A"><span class="toc-text">参考资料📍：</span></a></li></ol></div></div></div>
+
+
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" title="GitHub" href="https://github.com/WyattIsaac" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/08a41b181ce68.svg"/></a><a class="social" title="Spotify" href="https://open.spotify.com/user/49mfir3rciy9928ariyst50tg?si=_ISvZfRtTGGHNhZhQ-o-LQ&dl_branch=1" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/3845874.svg"/></a></div></footer>
 
@@ -98,13 +101,26 @@
 
 <article class='content md post'>
 <h1 class="article-title"><span>DoH配置</span></h1>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/WyattIsaac/Picture/imgdns%20over%20doh.png"></p>
+<p>DNS over HTTPS（缩写：DoH）是一个进行安全化的域名解析方案。其意义在于以加密的HTTPS协议进行DNS解析请求，避免原始DNS协议中用户的DNS解析请求被窃听或者修改的问题（例如中间人攻击）来达到保护用户隐私的目的。</p>
 <span id="more"></span>
 
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/WyattIsaac/Picture/imgdns%20over%20doh.png"></p>
-<p>IOS和Mac如何配置DoH<br><a target="_blank" rel="noopener" href="https://www.meaoo.cn/2020/12/22/20201222001.html">https://www.meaoo.cn/2020/12/22/20201222001.html</a></p>
-<p>如何在iOS或macOS上加密你的DNS（配置DoH或DoT）<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv11471882">https://www.bilibili.com/read/cv11471882</a><br>加密DNS，为你的设备开启DoH或DoT<br><a target="_blank" rel="noopener" href="https://www.imokey.cn/post/8qrxgf1VY/">https://www.imokey.cn/post/8qrxgf1VY/</a></p>
-<h2 id="iOS-Mac配置DoH："><a href="#iOS-Mac配置DoH：" class="headerlink" title="iOS Mac配置DoH："></a>iOS Mac配置DoH：</h2><p><a target="_blank" rel="noopener" href="https://github.com/paulmillr/encrypted-dns">https://github.com/paulmillr/encrypted-dns</a></p>
-<h2 id="Android："><a href="#Android：" class="headerlink" title="Android："></a>Android：</h2><h3 id="代理软件的dns设置可能会覆盖所设置的DoH"><a href="#代理软件的dns设置可能会覆盖所设置的DoH" class="headerlink" title="代理软件的dns设置可能会覆盖所设置的DoH"></a>代理软件的dns设置可能会覆盖所设置的DoH</h3>
+<h2 id="iOS和Mac配置DoH✏️："><a href="#iOS和Mac配置DoH✏️：" class="headerlink" title="iOS和Mac配置DoH✏️："></a>iOS和Mac配置DoH✏️：</h2><div class="tag-plugin link dis-select"><a class="link-card" title="encrypted-dns" href="https://github.com/paulmillr/encrypted-dns" target="_blank" rel="external nofollow noopener noreferrer"><div class="left"><span class="title fs14">encrypted-dns</span><span class="url fs12">https://github.com/paulmillr/encrypted-dns</span></div><div class="right"><div class="lazy img" data-bg="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/link/8f277b4ee0ecd.svg"></div></div></a></div>
+
+<h2 id="Android✏️："><a href="#Android✏️：" class="headerlink" title="Android✏️："></a>Android✏️：</h2><p>Android 9 以及以上的版本，你可以前往无线和网络，选择指定加密 DNS 服务(部分设备上可能被命名为：私人 DNS），输入 DNS over TLS 的地址即可。</p>
+<p>对于 Android 9 以下的版本，或者没有指定加密 DNS 服务，你可以前往各大应用市场下载 Intra 应用，进行配置。前往 Intra 的设置，选择 DNS over HTTPS 服务器，输入或者选择 DNS over HTTPS 服务器即可。</p>
+<h2 id="注意⚠️："><a href="#注意⚠️：" class="headerlink" title="注意⚠️："></a>注意⚠️：</h2><div class="tag-plugin note" color="green"><div class="body"><p>代理软件的dns设置可能会覆盖所设置的DoH</p></div></div>
+
+<h2 id="推荐阅读🔎："><a href="#推荐阅读🔎：" class="headerlink" title="推荐阅读🔎："></a>推荐阅读🔎：</h2><ul>
+<li>网速变慢？你可能需要先设置好 DNS | 科普<br><a target="_blank" rel="noopener" href="https://sspai.com/post/42125">https://sspai.com/post/42125</a></li>
+</ul>
+<h2 id="参考资料📍："><a href="#参考资料📍：" class="headerlink" title="参考资料📍："></a>参考资料📍：</h2><ul>
+<li>IOS和Mac如何配置DoH<br><a target="_blank" rel="noopener" href="https://www.meaoo.cn/2020/12/22/20201222001.html">https://www.meaoo.cn/2020/12/22/20201222001.html</a></li>
+<li>如何在iOS或macOS上加密你的DNS（配置DoH或DoT）<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv11471882">https://www.bilibili.com/read/cv11471882</a></li>
+<li>加密DNS，为你的设备开启DoH或DoT<br><a target="_blank" rel="noopener" href="https://www.imokey.cn/post/8qrxgf1VY/">https://www.imokey.cn/post/8qrxgf1VY/</a></li>
+<li>想要上网体验有保障，如何设置一个更安全的 DNS？<br><a target="_blank" rel="noopener" href="https://sspai.com/post/56783">https://sspai.com/post/56783</a></li>
+</ul>
+
 
 
 
