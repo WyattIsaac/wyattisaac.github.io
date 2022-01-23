@@ -104,9 +104,9 @@
 
 <h3 id="打开ssh公钥方法："><a href="#打开ssh公钥方法：" class="headerlink" title="打开ssh公钥方法："></a>打开ssh公钥方法：</h3><p>1.通过命令窗口<br>a.打开你的git bash 窗口<br>b.进入.ssh目录：cd ~/.ssh<br>c.找到id_rsa.pub文件：ls<br>d.查看公钥：cat id_rsa.pub 或者vim id_rsa.pub</p>
 <p>（公钥在用户文件夹下）</p>
-<h2 id="生成ssh："><a href="#生成ssh：" class="headerlink" title="生成ssh："></a>生成ssh：</h2><p>1.首先，如果你没有ssh key的话，在ternimal下输入命令：<br>ssh-keygen -t rsa -C “<a href="mailto:&#121;&#x6f;&#117;&#x72;&#101;&#109;&#x61;&#x69;&#x6c;&#x40;&#101;&#x78;&#x61;&#109;&#112;&#x6c;&#101;&#46;&#99;&#111;&#x6d;">&#121;&#x6f;&#117;&#x72;&#101;&#109;&#x61;&#x69;&#x6c;&#x40;&#101;&#x78;&#x61;&#109;&#112;&#x6c;&#101;&#46;&#99;&#111;&#x6d;</a>“，途中会让你输入密码啥的，不需要管，一路回车即可，会生成你的ssh key。（如果重新生成的话会覆盖之前的ssh key。）</p>
+<h2 id="生成ssh："><a href="#生成ssh：" class="headerlink" title="生成ssh："></a>生成ssh：</h2><p>1.首先，如果你没有ssh key的话，在ternimal下输入命令：<br>ssh-keygen -t rsa -C “<a href="mailto:&#121;&#111;&#x75;&#x72;&#101;&#x6d;&#x61;&#105;&#x6c;&#x40;&#101;&#120;&#x61;&#109;&#112;&#x6c;&#x65;&#46;&#99;&#x6f;&#x6d;">&#121;&#111;&#x75;&#x72;&#101;&#x6d;&#x61;&#105;&#x6c;&#x40;&#101;&#120;&#x61;&#109;&#112;&#x6c;&#x65;&#46;&#99;&#x6f;&#x6d;</a>“，途中会让你输入密码啥的，不需要管，一路回车即可，会生成你的ssh key。（如果重新生成的话会覆盖之前的ssh key。）</p>
 <p>　　<br>2.然后再ternimal下执行命令：</p>
-<p>　　ssh -v <a href="mailto:&#x67;&#x69;&#x74;&#x40;&#x67;&#x69;&#x74;&#x68;&#x75;&#x62;&#46;&#x63;&#111;&#109;">&#x67;&#x69;&#x74;&#x40;&#x67;&#x69;&#x74;&#x68;&#x75;&#x62;&#46;&#x63;&#111;&#109;</a> </p>
+<p>　　ssh -v <a href="mailto:&#x67;&#x69;&#116;&#64;&#x67;&#x69;&#x74;&#104;&#x75;&#98;&#x2e;&#x63;&#x6f;&#109;">&#x67;&#x69;&#116;&#64;&#x67;&#x69;&#x74;&#104;&#x75;&#98;&#x2e;&#x63;&#x6f;&#109;</a> </p>
 <p>　　最后两句会出现：</p>
 <p>　　No more authentication methods to try.  </p>
 <p>　　Permission denied (publickey).</p>
@@ -126,12 +126,12 @@
 <p>5.打开你刚刚生成的id_rsa.pub，将里面的内容复制，进入你的github账号，在settings下，SSH and GPG keys下new SSH key，title随便取一个名字，然后将id_rsa.pub里的内容复制到Key中，完成后Add SSH Key。</p>
 <p>6.最后一步，验证Key</p>
 <p>　　在ternimal下输入命令：</p>
-<p>　　ssh -T <a href="mailto:&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#x68;&#x75;&#98;&#46;&#x63;&#111;&#109;">&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#x68;&#x75;&#98;&#46;&#x63;&#111;&#109;</a></p>
+<p>　　ssh -T <a href="mailto:&#x67;&#x69;&#x74;&#64;&#103;&#105;&#116;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#109;">&#x67;&#x69;&#x74;&#64;&#103;&#105;&#116;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#109;</a></p>
 <p>　　提示：Hi xxx! You’ve successfully authenticated, but GitHub does not provide shell  access.</p>
 <p>引用：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/wmr95/p/7852832.html">https://www.cnblogs.com/wmr95/p/7852832.html</a></p>
-<p>本地git报出<a href="mailto:&#103;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#104;&#117;&#x62;&#x2e;&#99;&#111;&#109;">&#103;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#104;&#117;&#x62;&#x2e;&#99;&#111;&#109;</a>: Permission denied (publickey). fatal: Could not read from remote repository_LiDong的博客-程序员宅基地<br><a target="_blank" rel="noopener" href="https://www.cxyzjd.com/article/qq_36932020/103377586">https://www.cxyzjd.com/article/qq_36932020/103377586</a></p>
+<p>本地git报出<a href="mailto:&#x67;&#x69;&#116;&#x40;&#103;&#x69;&#116;&#x68;&#117;&#98;&#46;&#99;&#x6f;&#x6d;">&#x67;&#x69;&#116;&#x40;&#103;&#x69;&#116;&#x68;&#117;&#98;&#46;&#99;&#x6f;&#x6d;</a>: Permission denied (publickey). fatal: Could not read from remote repository_LiDong的博客-程序员宅基地<br><a target="_blank" rel="noopener" href="https://www.cxyzjd.com/article/qq_36932020/103377586">https://www.cxyzjd.com/article/qq_36932020/103377586</a></p>
 <p>第一句报错：<br>fatal: remote origin already exists.<br>远程起源已经存在。</p>
-<p>第二句报错：<br><a href="mailto:&#103;&#x69;&#116;&#64;&#x67;&#105;&#116;&#x68;&#x75;&#x62;&#46;&#x63;&#111;&#109;">&#103;&#x69;&#116;&#64;&#x67;&#105;&#116;&#x68;&#x75;&#x62;&#46;&#x63;&#111;&#109;</a>: Permission denied (publickey).<br>fatal: Could not read from remote repository.<br><a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#105;&#x74;&#x68;&#117;&#98;&#46;&#x63;&#111;&#109;">&#x67;&#105;&#116;&#64;&#103;&#105;&#x74;&#x68;&#117;&#98;&#46;&#x63;&#111;&#109;</a>：权限被拒绝（publickey）。<br>致命：无法从远程存储库读取。</p>
+<p>第二句报错：<br><a href="mailto:&#103;&#x69;&#116;&#x40;&#103;&#105;&#x74;&#x68;&#117;&#98;&#46;&#x63;&#111;&#109;">&#103;&#x69;&#116;&#x40;&#103;&#105;&#x74;&#x68;&#117;&#98;&#46;&#x63;&#111;&#109;</a>: Permission denied (publickey).<br>fatal: Could not read from remote repository.<br><a href="mailto:&#x67;&#105;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#x62;&#46;&#x63;&#111;&#x6d;">&#x67;&#105;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#x62;&#46;&#x63;&#111;&#x6d;</a>：权限被拒绝（publickey）。<br>致命：无法从远程存储库读取。</p>
 <p>第三句报错：<br>Please make sure you have the correct access rights<br>and the repository exists.<br>请确保您拥有正确的访问权限<br>并且存储库存在。</p>
 <p>经过翻译可以得知我是在上传过程中没有权限所以被拒绝了，经过了对git的一番了解以后得知我好像做少了其中一个比较重要的一步，就是设置一个SSH KEY，即是密钥，（出于安全考虑，Github 服务器和我们本地的通讯要求使用 SSH Key 来验证）。这个时候只需设置一个密钥就行了。</p>
 
