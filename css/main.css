@@ -193,7 +193,7 @@ a[onclick]:hover {
 }
 @media screen and (max-width: 768px) {
   .mobile-hidden {
-    display: none !important;
+    display: none;
   }
 }
 .float-panel {
@@ -203,7 +203,7 @@ a[onclick]:hover {
   float: right;
   z-index: 9;
   display: flex;
-  border-radius: 6px 0 0 6px;
+  border-radius: 4px 0 0 4px;
   padding-right: 1rem;
   border: 1px solid var(--block-border);
   border-right: 0;
@@ -230,17 +230,6 @@ a[onclick]:hover {
   background: var(--card);
   color: #ff5722;
   border-color: var(--block-border);
-}
-code {
-  -webkit-font-smoothing: auto;
-  -moz-osx-font-smoothing: auto;
-  color: var(--text-code);
-  font-family: Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif;
-  word-break: break-all;
-  font-size: 85%;
-  background: var(--block);
-  padding: 0.2em 0.4em;
-  border-radius: 4px;
 }
 article.md .highlight {
   margin: 1rem 0;
@@ -1927,9 +1916,8 @@ details.folding[child=codeblock]>div.body .highlight .code:before {
 .tag-plugin.image .image-meta .image-caption {
   display: inline-block;
   font-size: 0.75rem;
-  color: var(--text-p2);
-  line-height: 1.5;
-  text-align: justify;
+  line-height: 1.4;
+  color: var(--text-p3);
 }
 .tag-plugin.image .image-meta .image-caption:empty {
   display: none;
@@ -1954,7 +1942,8 @@ details.folding[child=codeblock]>div.body .highlight .code:before {
   border: 1px solid #d2d2d2;
   border-bottom-width: 2px;
   background: var(--card);
-  padding: 2px 4px 1px 4px;
+  padding-left: 4px;
+  padding-right: 4px;
   font-family: Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif;
   font-weight: 700;
 }
@@ -2045,17 +2034,6 @@ details.folding[child=codeblock]>div.body .highlight .code:before {
   flex-shrink: 0;
   color: var(--text-p3);
 }
-.md .tag-plugin.mark {
-  margin: 0 1px;
-  padding: 1px 2px;
-  border-radius: 4px;
-  background: var(--theme-bg);
-  border: 1px solid var(--theme-border);
-  color: var(--text-p0);
-}
-.md .tag-plugin.mark[color=dark] {
-  border-color: var(--theme-bg);
-}
 .md .tag-plugin.navbar nav.cap {
   margin: 0;
   padding: 1px;
@@ -2102,9 +2080,6 @@ details.folding[child=codeblock]>div.body .highlight .code:before {
 }
 .md .tag-plugin.note >.body:only-child {
   margin: 1rem 0;
-}
-.md .tag-plugin.note[color] code {
-  background: none;
 }
 .md .tag-plugin.note:not([color]) .highlight {
   background: var(--block-hover);
@@ -2623,10 +2598,10 @@ details.toc[open] >div.body section .header+.doc_tree {
   margin-bottom: 6rem;
 }
 .logo-wrap {
-  margin: 1rem 0;
+  margin: 1rem 0 0.5rem;
   display: flex;
   align-items: center;
-  overflow: hidden;
+  color: var(--text-p0);
 }
 .logo-wrap a {
   color: inherit;
@@ -2710,22 +2685,17 @@ details.toc[open] >div.body section .header+.doc_tree {
   display: block;
   position: relative;
 }
-.logo-wrap a.title .main {
-  color: var(--text-p0);
-}
 .logo-wrap a.title .sub {
   color: var(--text-p1);
   transition: opacity 0.2s ease-out, transform 0.2s ease-out;
   -moz-transition: opacity 0.2s ease-out, transform 0.2s ease-out;
   -webkit-transition: opacity 0.2s ease-out, transform 0.2s ease-out;
   -o-transition: opacity 0.2s ease-out, transform 0.2s ease-out;
-  white-space: nowrap;
 }
 .logo-wrap a.title .hover {
   position: absolute;
   bottom: 0;
   transform: translateY(8px);
-  overflow: visible;
 }
 .logo-wrap a.title:hover .normal {
   opacity: 0;
@@ -3193,7 +3163,6 @@ article.md.error-page a#back {
     left: 0;
     background: var(--site-bg);
     box-shadow: 0 2px 4px 0px rgba(0,0,0,0.1), 0 4px 8px 0px rgba(0,0,0,0.1), 0 8px 16px 0px rgba(0,0,0,0.1);
-    z-index: 10;
   }
   .l_body .l_main {
     max-width: 100%;
@@ -3360,10 +3329,7 @@ article.md.error-page a#back {
   }
 }
 .l_main header {
-  margin: 3rem 1rem 2rem;
-}
-.l_main header .logo-wrap {
-  margin: 0;
+  margin: 2rem 1rem;
 }
 article.md {
   max-width: 100%;
@@ -3489,6 +3455,17 @@ article.md p>a:not([class]):hover {
 article.md p {
   font-size: 0.9375rem;
 }
+article.md code {
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+  color: var(--text-code);
+  font-family: Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif;
+  word-break: break-all;
+  font-size: 85%;
+  background: var(--block);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+}
 article.md pre {
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
@@ -3507,7 +3484,7 @@ article.md blockquote {
   box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
 }
 article.md img {
-  border-radius: 6px;
+  border-radius: 4px;
   margin: auto;
   display: block;
 }
